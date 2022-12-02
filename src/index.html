@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1 user-scalable=no, minimum-scale=1.0,maximum-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face-aframe.prod.js"></script>
+    <title>Arnaud's Facefilter App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://kit.fontawesome.com/8b932ab3f5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <img class="sidebar__logo" src="./svg/logo.svg">
+        <div class="sidebar__btn-container">
+            <button data-name="gasmask" class="btn gasmask-btn">
+                <i class="fa-solid fa-skull"></i>
+                <span>War zone</span>
+            </button>
+            <button data-name="cartoon" class="btn cartoon-btn">
+                <i class="fa-solid fa-face-grin-tongue-wink"></i>
+                <span>Party face</span>
+            </button>
+            <button data-name="glasses" class="btn glasses-btn">
+                <i class="fa-solid fa-glasses"></i>
+                <Span>Vacation modus</Span>
+            </button>
+            <button data-name="hat" class="btn hat-btn">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Graduate</span>
+            </button>
+            <button data-name="lips" class="btn lips-btn">
+                <i class="fa-solid fa-face-kiss-beam"></i>
+                <span>Love Lips</span>
+            </button>
+        </div>
+    </aside>
+
+    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
+        vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="gasmask" src="./models/gas-mask.glb"></a-asset-item>
+            <a-asset-item id="lips" src="./models/lips.glb"></a-asset-item>
+            <a-asset-item id="cartoon" src="./models/cartoon.glb"></a-asset-item>
+            <a-asset-item id="hat" src="./models/hat.glb"></a-asset-item>
+            <a-asset-item id="glasses" src="./models/glasses.glb"></a-asset-item>
+            <a-asset-item id="headModel" src="./models/headOccluder.glb"></a-asset-item>
+        </a-assets>
+
+        <a-camera active="false" position="0 0 0"></a-camera>
+
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model class="model" data-name="cartoon" id="cartoon-model" visible="false" rotation="0 0 0"
+                position="0 0 -.4" scale=".012 .012 .012" src="#cartoon">
+            </a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex: 4">
+            <a-gltf-model class="model" data-name="gasmask" id="gasmask-model" visible="false" rotation="0 0 0"
+                position="0 0 -.4" scale=".25 .25 .25" src="#gasmask">
+            </a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model class="model" data-name="glasses" id="glasses-model" visible="false" rotation="0 0 0"
+                position="0 -.05 -.3" scale=".16 .16 .16" src="#glasses">
+            </a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex: 14">
+            <a-gltf-model class="model" data-name="lips" id="lips-model" visible="false" rotation="0 0 0"
+                position="0 -.05 -.5" scale="0.08 0.08 0.08" src="#lips">
+            </a-gltf-model>
+        </a-entity>
+
+
+        <a-entity mindar-face-target="anchorIndex: 10">
+            <a-gltf-model class="model" data-name="hat" id="hat-model" visible="false" rotation="10 0 0"
+                position="0 .2 -.9" scale="1.2 1.2 1.2" src="#hat">
+            </a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model mindar-face-occluder position="0 -0.3 -.2" rotation="0 0 0" scale="0.08 0.08 0.08"
+                src="#headModel"></a-gltf-model>
+        </a-entity>
+        
+    </a-scene>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+	"liveServer.settings.https": {
+	"enable": true, //set it true to enable the feature.
+  // CHECK IF STILL CORRECT
+  "cert": "C:/Users/arnau/Documents/github-ADB/facefilter-app-pgm-arnadebu/server.crt", //full path of the certificate
+  "key": "C:/Users/arnau/Documents/github-ADB/facefilter-app-pgm-arnadebu/server.key", //full path of the private key
+  "passphrase": "1234"
+    },
+    "liveServer.settings.port": 5501,
+	// "liveServer.settings.port": 8080
+	}
+
+  
