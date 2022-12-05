@@ -9,6 +9,7 @@
     <title>Arnaud's Facefilter App</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://kit.fontawesome.com/8b932ab3f5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -38,6 +39,21 @@
         </div>
     </aside>
 
+    <section class="splash">
+        <div class="splash__bg close-btn"></div>
+        <div class="splash__container">
+            <img class="splash__logo" src="./svg/logo.svg">
+            <h1 class="splash__title">Shake up your selfies</h1>
+            <p class="splash__description">
+                Access five different fun creative filters in just one tap!
+            </p>
+            <div class="loader">
+                <i class="fa fa-spinner fa-4x fa-spin"></i>
+            </div>
+            <button class="splash__btn btn close-btn hidden">Let's go</button>
+        </div>
+    </section>
+
     <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
         vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
@@ -52,8 +68,13 @@
         <a-camera active="false" position="0 0 0"></a-camera>
 
         <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model mindar-face-occluder position="0 -0.2 -.2" rotation="0 0 0" scale="0.08 0.08 0.08"
+                src="#headModel"></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-face-target="anchorIndex: 4">
             <a-gltf-model class="model" data-name="cartoon" id="cartoon-model" visible="false" rotation="0 0 0"
-                position="0 0 -.4" scale=".012 .012 .012" src="#cartoon">
+                position="0 .25 0" scale=".012 .012 .012" src="#cartoon">
             </a-gltf-model>
         </a-entity>
 
@@ -63,28 +84,23 @@
             </a-gltf-model>
         </a-entity>
 
-        <a-entity mindar-face-target="anchorIndex: 168">
+        <a-entity mindar-face-target="anchorIndex: 197">
             <a-gltf-model class="model" data-name="glasses" id="glasses-model" visible="false" rotation="0 0 0"
-                position="0 -.05 -.3" scale=".16 .16 .16" src="#glasses">
+                position="0 0 0" scale=".14 .14 .14" src="#glasses">
             </a-gltf-model>
         </a-entity>
 
-        <a-entity mindar-face-target="anchorIndex: 14">
+        <a-entity mindar-face-target="anchorIndex: 13">
             <a-gltf-model class="model" data-name="lips" id="lips-model" visible="false" rotation="0 0 0"
-                position="0 -.05 -.5" scale="0.08 0.08 0.08" src="#lips">
+                position="0 0 0" scale="0.07 0.07 0.07" src="#lips">
             </a-gltf-model>
         </a-entity>
 
 
-        <a-entity mindar-face-target="anchorIndex: 10">
+        <a-entity mindar-face-target="anchorIndex: 9">
             <a-gltf-model class="model" data-name="hat" id="hat-model" visible="false" rotation="10 0 0"
-                position="0 .2 -.9" scale="1.2 1.2 1.2" src="#hat">
+                position="0 .45 -.9" scale="1.2 1.2 1.2" src="#hat">
             </a-gltf-model>
-        </a-entity>
-
-        <a-entity mindar-face-target="anchorIndex: 168">
-            <a-gltf-model mindar-face-occluder position="0 -0.3 -.2" rotation="0 0 0" scale="0.08 0.08 0.08"
-                src="#headModel"></a-gltf-model>
         </a-entity>
         
     </a-scene>

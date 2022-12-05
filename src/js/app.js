@@ -2,6 +2,7 @@ const app = {
 
   init() {
     this.cacheElements();
+    this.generateSplashScreen();
   },
   cacheElements() {
     this.$buttons = document.querySelectorAll('.btn');
@@ -16,6 +17,11 @@ const app = {
     this.$cartoonBtn = document.querySelector(".cartoon-btn");
     this.$glasses = document.querySelector("#glasses-model");
     this.$glassesBtn = document.querySelector(".glasses-btn");
+    this.$closeBtn = document.querySelectorAll(".close-btn");
+    this.$splashBtn = document.querySelector(".splash__btn");
+    this.$splashLoader = document.querySelector(".loader");
+    this.$splashContainer = document.querySelector(".splash__container");
+    this.$splashBg = document.querySelector(".splash__bg");
 
     this.toggleFaceFilter(this.$hatBtn, this.$hat);
     this.toggleFaceFilter(this.$gasMaskBtn, this.$gasMask);
@@ -53,6 +59,20 @@ const app = {
         });
       }
     });
+  },
+  generateSplashScreen() {
+    // Hide loading icon and show start button after 2s
+    setTimeout(() => {
+      this.$splashBtn.classList.remove('hidden');
+      this.$splashLoader.classList.add('hidden');
+    }, 2000);
+
+    this.$closeBtn.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        this.$splashContainer.classList.add('hidden');
+        this.$splashBg.classList.add('hidden');
+      })
+    })
   }
 };
 
